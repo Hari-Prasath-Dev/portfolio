@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #0a0e0b;
+  --bg-secondary: #111812;
+  --bg-card: rgba(18, 26, 20, 0.75);
+  --border-subtle: rgba(200, 203, 109, 0.15);
+  --border-sage: rgba(200, 203, 109, 0.35);
+  --border-olive: rgba(126, 138, 66, 0.3);
+  --accent-sage: #c8cb6d;
+  --accent-sage-light: #e2e58c;
+  --accent-olive: #7e8a42;
+  --accent-moss: #5c6b2f;
+  --accent-amber: #e69832;
+  --foreground: #f6f7ee;
+  --foreground-muted: #a6b09e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-primary);
+  color: var(--foreground);
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--foreground);
+  overflow-x: hidden;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Sage Gold & Olive Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0e0b;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #c8cb6d 0%, #7e8a42 100%);
+  border-radius: 9999px;
+  border: 1px solid #0a0e0b;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #e2e58c 0%, #c8cb6d 100%);
+}
+
+/* Deep Olive Glassmorphism */
+.glass-panel {
+  background: rgba(16, 24, 18, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+.glass-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(200, 203, 109, 0.4);
+  box-shadow: 0 10px 35px -10px rgba(200, 203, 109, 0.22), 0 0 20px -5px rgba(126, 138, 66, 0.2);
+}
+
+/* Unique Sage Gold & Olive Gradients */
+.text-gradient-primary {
+  background: linear-gradient(135deg, #e2e58c 0%, #c8cb6d 40%, #9bae4f 75%, #e69832 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-accent {
+  background: linear-gradient(135deg, #c8cb6d 0%, #e2e58c 50%, #7e8a42 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-sage {
+  background: linear-gradient(135deg, #f0f2b6 0%, #c8cb6d 50%, #7e8a42 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #e2e58c 0%, #c8cb6d 50%, #e69832 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Border Conic Spin (Sage Gold to Forest) */
+@keyframes spin-conic {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-conic {
+  animation: spin-conic 8s linear infinite;
+}
+
+/* Code & IDE Styling */
+.code-editor-shadow {
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.9), 0 0 30px -5px rgba(200, 203, 109, 0.18);
+}
+
+/* Subtle architectural stone grid */
+.bg-grid-pattern {
+  background-image: radial-gradient(rgba(200, 203, 109, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Noise overlay effect */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  content: "";
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 999;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
