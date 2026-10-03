@@ -89,7 +89,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent" />
 
-              {/* Badges on Hero */}
+              {/* Badges on Hero */} 
               <div className="absolute bottom-6 left-6 right-6 flex flex-wrap items-center justify-between gap-3">
                 <div className="flex flex-wrap items-center gap-2">
                   <Badge variant="accent" size="lg">
