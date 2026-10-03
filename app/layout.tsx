@@ -112,6 +112,9 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
     apple: "/favicon.ico",
   },
+  verification: {
+    google: "google16096d9fc91fafae",
+  },
 };
 
 // Comprehensive JSON-LD Structured Data for Google Knowledge Graph & Top Ranking
