@@ -1,3 +1,5 @@
+import { Preloader } from "@/components/Preloader";
+import { InteractiveWebEffect } from "@/components/InteractiveWebEffect";
 import { CodeBackground } from "@/components/CodeBackground";
 import { CursorGlow } from "@/components/CursorGlow";
 import { Navbar } from "@/components/Navbar";
@@ -14,6 +16,12 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 export default function Home() {
   return (
     <main className="relative min-h-screen bg-[#050508] overflow-hidden">
+      {/* Intro Preloader with Curtain Fall Reveal */}
+      <Preloader />
+
+      {/* Spider-Web Click Expansion & Ambient Web Mesh Effect */}
+      <InteractiveWebEffect />
+
       {/* Interactive Cyber & Syntax Code Canvas Background */}
       <CodeBackground />
 

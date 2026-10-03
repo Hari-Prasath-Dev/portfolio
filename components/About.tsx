@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { personalData } from "@/lib/data";
 import { SectionHeading } from "./ui/SectionHeading";
+import { TiltCard } from "./ui/TiltCard";
 import { StatCounter } from "./ui/StatCounter";
 import { 
   Sparkles, 
@@ -120,14 +121,16 @@ export function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="glass-card p-4 sm:p-7 rounded-2xl border border-white/10 hover:border-[#c8cb6d]/40 transition-all duration-300 text-center flex flex-col items-center justify-center relative group"
+                  className="h-full"
                 >
-                  <div className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black text-gradient-primary mb-1 sm:mb-2">
-                    <StatCounter value={stat.value} suffix={stat.suffix} />
-                  </div>
-                  <p className="text-[11px] sm:text-sm font-medium text-stone-400">
-                    {stat.label}
-                  </p>
+                  <TiltCard className="h-full glass-card p-4 sm:p-7 rounded-2xl border border-white/10 hover:border-[#c8cb6d]/40 transition-all duration-300 text-center flex flex-col items-center justify-center relative group">
+                    <div className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black text-gradient-primary mb-1 sm:mb-2">
+                      <StatCounter value={stat.value} suffix={stat.suffix} />
+                    </div>
+                    <p className="text-[11px] sm:text-sm font-medium text-stone-400">
+                      {stat.label}
+                    </p>
+                  </TiltCard>
                 </motion.div>
               ))}
             </div>

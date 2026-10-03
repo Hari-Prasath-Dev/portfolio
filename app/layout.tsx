@@ -19,29 +19,36 @@ export const viewport: Viewport = {
   maximumScale: 5,
 };
 
+const siteUrl = "https://hari-prasath-portfolio.vercel.app";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://hariprasath.dev"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Hari Prasath | Senior Frontend Developer | React.js & Next.js Specialist",
     template: "%s | Hari Prasath",
   },
   description:
-    "Official portfolio of Hari Prasath — Senior Frontend Developer with 3+ years of experience engineering high-performance web applications, enterprise platforms (Syncraze), React.js, Next.js, and TypeScript architectures.",
+    "Official portfolio of Hari Prasath — Frontend Developer specializing in React.js, Next.js, TypeScript, and high-performance enterprise web applications (Syncraze). 3+ years experience engineering modern scalable UI architectures.",
   keywords: [
     "Hari Prasath",
-    "Hari Prasath Frontend Developer",
     "Hari Prasath Portfolio",
+    "Hari Prasath Frontend Developer",
+    "Hari Prasath React Developer",
+    "Hari Prasath Next.js Developer",
+    "Hari Prasath Web Developer",
+    "Hari Prasath Software Engineer",
+    "V Hari Prasath",
+    "Hari Prasath V",
     "Frontend Developer Chennai",
     "React Developer Chennai",
-    "React.js Specialist",
     "Next.js Developer India",
-    "Senior Frontend Engineer",
+    "Senior Frontend Developer",
     "TypeScript Developer",
-    "Syncraze ERP",
-    "Web Application Developer",
-    "UI/UX Frontend Engineer",
-    "Full Stack Developer",
-    "Tailwind CSS Specialist",
+    "Syncraze ERP Developer",
+    "Full Stack Developer Chennai",
+    "UI UX Frontend Engineer",
+    "Tailwind CSS Expert",
+    "JavaScript Developer",
   ],
   authors: [{ name: "Hari Prasath", url: "https://linkedin.com/in/v-hariprasath" }],
   creator: "Hari Prasath",
@@ -54,7 +61,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
   alternates: {
-    canonical: "/",
+    canonical: siteUrl,
   },
   robots: {
     index: true,
@@ -70,16 +77,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    type: "website",
+    type: "profile",
     locale: "en_US",
-    url: "https://hariprasath.dev",
+    url: siteUrl,
     title: "Hari Prasath | Senior Frontend Developer | React.js & Next.js Specialist",
     description:
       "Explore the portfolio of Hari Prasath — 3+ years of experience delivering scalable enterprise applications with React, Next.js, TypeScript, and state-of-the-art UI architectures.",
-    siteName: "Hari Prasath — Frontend Developer Portfolio",
+    siteName: "Hari Prasath Portfolio",
     images: [
       {
-        url: "/assets/hari-avatar.jpg",
+        url: "/assets/profile.jpg",
         width: 800,
         height: 1000,
         alt: "Hari Prasath - Frontend Developer",
@@ -88,7 +95,7 @@ export const metadata: Metadata = {
         url: "/assets/syncraze.jpg",
         width: 1200,
         height: 630,
-        alt: "Syncraze Enterprise Platform Preview",
+        alt: "Syncraze Enterprise Platform by Hari Prasath",
       },
     ],
   },
@@ -97,26 +104,31 @@ export const metadata: Metadata = {
     title: "Hari Prasath | Senior Frontend Developer | React.js & Next.js Specialist",
     description:
       "Frontend Developer with 3+ years experience engineering dynamic, high-performance web applications with React.js & Next.js.",
-    images: ["/assets/hari-avatar.jpg"],
+    images: ["/assets/profile.jpg"],
     creator: "@hariprasath",
   },
   category: "technology",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
 };
 
-// JSON-LD Structured Data for Google Knowledge Graph & Rich Search Results
+// Comprehensive JSON-LD Structured Data for Google Knowledge Graph & Top Ranking
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Person",
-      "@id": "https://hariprasath.dev/#person",
+      "@id": `${siteUrl}/#person`,
       name: "Hari Prasath",
+      alternateName: ["Hari Prasath V", "V Hari Prasath", "HariPrasath"],
       givenName: "Hari",
       familyName: "Prasath",
-      jobTitle: "Frontend Developer",
+      jobTitle: "Senior Frontend Developer",
       gender: "Male",
-      url: "https://hariprasath.dev",
-      image: "https://hariprasath.dev/assets/hari-avatar.jpg",
+      url: siteUrl,
+      image: `${siteUrl}/assets/profile.jpg`,
       sameAs: [
         "https://linkedin.com/in/v-hariprasath",
         "https://github.com",
@@ -142,6 +154,8 @@ const jsonLd = {
         "MongoDB",
         "Frontend Architecture",
         "Enterprise Web Applications",
+        "Performance Optimization",
+        "UI/UX Engineering",
       ],
       email: "hariprasath26.dev@gmail.com",
       telephone: "+91-8825418298",
@@ -151,26 +165,73 @@ const jsonLd = {
         addressRegion: "Tamil Nadu",
         addressCountry: "IN",
       },
+      description:
+        "Senior Frontend Developer with 3+ years of experience engineering high-performance web applications, enterprise ERP platforms (Syncraze), React.js, Next.js, and TypeScript architectures.",
     },
     {
       "@type": "WebSite",
-      "@id": "https://hariprasath.dev/#website",
-      url: "https://hariprasath.dev",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
       name: "Hari Prasath Portfolio",
+      alternateName: "Hari Prasath - Frontend Developer Portfolio",
       description: "Personal portfolio and enterprise project showcase of Hari Prasath.",
       publisher: {
-        "@id": "https://hariprasath.dev/#person",
+        "@id": `${siteUrl}/#person`,
       },
       inLanguage: "en-US",
     },
     {
       "@type": "ProfilePage",
-      "@id": "https://hariprasath.dev/#profilepage",
-      url: "https://hariprasath.dev",
+      "@id": `${siteUrl}/#profilepage`,
+      url: siteUrl,
       name: "Hari Prasath - Frontend Developer Profile",
+      description: "Professional profile and portfolio of Hari Prasath.",
       mainEntity: {
-        "@id": "https://hariprasath.dev/#person",
+        "@id": `${siteUrl}/#person`,
       },
+    },
+    {
+      "@type": "ItemList",
+      "@id": `${siteUrl}/#projects`,
+      name: "Featured Projects by Hari Prasath",
+      itemListElement: [
+        {
+          "@type": "SoftwareApplication",
+          position: 1,
+          name: "Syncraze Enterprise ERP",
+          applicationCategory: "BusinessApplication",
+          operatingSystem: "Web",
+          description:
+            "Flagship enterprise ERP ecosystem engineered for a Dubai client featuring 9+ high-performance modules including HRMS, Fleet Management, and Analytics.",
+          creator: {
+            "@id": `${siteUrl}/#person`,
+          },
+        },
+        {
+          "@type": "SoftwareApplication",
+          position: 2,
+          name: "Melloplex Streaming Platform",
+          applicationCategory: "MultimediaApplication",
+          operatingSystem: "Web",
+          description:
+            "Cinematic streaming platform with live stream broadcasting, interactive chat, and dynamic UI animations.",
+          creator: {
+            "@id": `${siteUrl}/#person`,
+          },
+        },
+        {
+          "@type": "SoftwareApplication",
+          position: 3,
+          name: "ChitApp Financial Management",
+          applicationCategory: "FinanceApplication",
+          operatingSystem: "Web",
+          description:
+            "Modern FinTech chit fund auction & collection management platform.",
+          creator: {
+            "@id": `${siteUrl}/#person`,
+          },
+        },
+      ],
     },
   ],
 };

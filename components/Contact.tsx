@@ -51,7 +51,7 @@ export function Contact() {
         particleCount: 80,
         spread: 70,
         origin: { y: 0.6 },
-        colors: ["#3b82f6", "#8b5cf6", "#ec4899", "#38bdf8"],
+        colors: ["#c8cb6d", "#10b981", "#e2e58c", "#e69832", "#ffffff"],
       });
 
       // Reset form after a delay

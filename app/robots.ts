@@ -12,6 +12,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://hariprasath.dev/sitemap.xml",
+    sitemap: "https://hari-prasath-portfolio.vercel.app/sitemap.xml",
+    host: "https://hari-prasath-portfolio.vercel.app",
   };
 }

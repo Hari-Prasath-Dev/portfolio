@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { educationData } from "@/lib/data";
 import { SectionHeading } from "./ui/SectionHeading";
+import { TiltCard } from "./ui/TiltCard";
 import { 
   GraduationCap, 
   Calendar, 
@@ -31,7 +32,7 @@ export function Education() {
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.6 }}
         >
-          <div className="glass-panel p-8 sm:p-10 rounded-3xl border border-white/10 hover:border-[#c8cb6d]/40 transition-all duration-300 shadow-2xl relative overflow-hidden">
+          <TiltCard className="glass-panel p-8 sm:p-10 rounded-3xl border border-white/10 hover:border-[#c8cb6d]/40 transition-all duration-300 shadow-2xl relative overflow-hidden">
             {/* Ambient Corner Glow */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-[#c8cb6d]/10 via-[#7e8a42]/10 to-transparent pointer-events-none" />
 
@@ -78,7 +79,7 @@ export function Education() {
                 </div>
               ))}
             </div>
-          </div>
+          </TiltCard>
         </motion.div>
       </div>
     </section>
