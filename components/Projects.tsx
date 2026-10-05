@@ -10,7 +10,6 @@ import { Badge } from "./ui/Badge";
 import { Button } from "./ui/Button";
 import { TiltCard } from "./ui/TiltCard";
 import { 
-  Sparkles, 
   ArrowUpRight, 
   ExternalLink,
   CheckCircle2, 
@@ -62,7 +61,7 @@ export function Projects() {
             <div className="flex flex-wrap items-center justify-between gap-3 mb-8">
               <div className="flex flex-wrap items-center gap-2.5">
                 <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#7e8a42] to-[#c8cb6d] text-stone-950 shadow-lg shadow-[#c8cb6d]/30">
-                  <Sparkles className="w-3.5 h-3.5" />
+                  <Layers className="w-3.5 h-3.5" />
                   Flagship Enterprise Project
                 </span>
                 <Badge variant="glow" size="md">
@@ -81,42 +80,42 @@ export function Projects() {
               {/* Left Column: Details & Highlights */}
               <div className="lg:col-span-6 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-2">
+                  <h3 className="text-3xl sm:text-4xl md:text-5xl font-black dark:text-white text-stone-900 tracking-tight mb-2">
                     {flagshipProject.title}
                   </h3>
-                  <p className="text-sm sm:text-base font-medium text-[#e2e58c] mb-4">
+                  <p className="text-sm sm:text-base font-bold dark:text-[#e2e58c] text-[#344415] mb-4">
                     {flagshipProject.subtitle}
                   </p>
-                  <p className="text-sm sm:text-base text-stone-300 leading-relaxed mb-6">
+                  <p className="text-sm sm:text-base dark:text-stone-300 text-stone-700 leading-relaxed mb-6 font-normal">
                     {flagshipProject.description}
                   </p>
 
                   {/* Highlight Bullets from Resume */}
                   <div className="space-y-3 mb-8">
-                    <div className="flex items-start gap-3 text-xs sm:text-sm text-stone-300">
-                      <div className="w-5 h-5 rounded-full bg-[#c8cb6d]/20 text-[#c8cb6d] flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="flex items-start gap-3 text-xs sm:text-sm dark:text-stone-300 text-stone-700">
+                      <div className="w-5 h-5 rounded-full dark:bg-[#c8cb6d]/20 bg-[#5c6b2f]/15 dark:text-[#c8cb6d] text-[#5c6b2f] flex items-center justify-center shrink-0 mt-0.5">
                         <LayoutDashboard className="w-3 h-3" />
                       </div>
                       <span>
-                        <strong className="text-white">9+ Integrated Modules:</strong> Executive Dashboard, HR, Inventory, Fleet Tracking, HSE Safety & License Management.
+                        <strong className="dark:text-white text-stone-900 font-bold">9+ Integrated Modules:</strong> Executive Dashboard, HR, Inventory, Fleet Tracking, HSE Safety & License Management.
                       </span>
                     </div>
 
-                    <div className="flex items-start gap-3 text-xs sm:text-sm text-stone-300">
-                      <div className="w-5 h-5 rounded-full bg-[#7e8a42]/20 text-[#e2e58c] flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="flex items-start gap-3 text-xs sm:text-sm dark:text-stone-300 text-stone-700">
+                      <div className="w-5 h-5 rounded-full dark:bg-[#7e8a42]/20 bg-[#5c6b2f]/15 dark:text-[#e2e58c] text-[#5c6b2f] flex items-center justify-center shrink-0 mt-0.5">
                         <FileSpreadsheet className="w-3 h-3" />
                       </div>
                       <span>
-                        <strong className="text-white">Excel Bulk Upload Engine:</strong> High-throughput multi-record data ingestion, schema validation, and error reporting.
+                        <strong className="dark:text-white text-stone-900 font-bold">Excel Bulk Upload Engine:</strong> High-throughput multi-record data ingestion, schema validation, and error reporting.
                       </span>
                     </div>
 
-                    <div className="flex items-start gap-3 text-xs sm:text-sm text-stone-300">
-                      <div className="w-5 h-5 rounded-full bg-[#e69832]/20 text-[#e69832] flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="flex items-start gap-3 text-xs sm:text-sm dark:text-stone-300 text-stone-700">
+                      <div className="w-5 h-5 rounded-full dark:bg-[#e69832]/20 bg-[#d97706]/15 text-[#e69832] flex items-center justify-center shrink-0 mt-0.5">
                         <BarChart3 className="w-3 h-3" />
                       </div>
                       <span>
-                        <strong className="text-white">Dynamic ApexCharts Telemetry:</strong> Real-time KPI charts, live state caching with React Query, and Redux data store.
+                        <strong className="dark:text-white text-stone-900 font-bold">Dynamic ApexCharts Telemetry:</strong> Real-time KPI charts, live state caching with React Query, and Redux data store.
                       </span>
                     </div>
                   </div>
@@ -124,7 +123,7 @@ export function Projects() {
 
                 {/* Tech Chips */}
                 <div className="mb-8">
-                  <p className="text-xs font-mono uppercase tracking-wider text-stone-500 mb-3">
+                  <p className="text-xs font-mono uppercase tracking-wider dark:text-stone-500 text-stone-600 mb-3 font-semibold">
                     Tech Stack
                   </p>
                   <div className="flex flex-wrap gap-2">
@@ -151,10 +150,10 @@ export function Projects() {
                       href={flagshipProject.liveDemoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/10 hover:border-[#c8cb6d]/50 text-stone-200 hover:text-white text-xs sm:text-sm font-semibold transition-all duration-300 shadow-md group/btn"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl dark:bg-white/[0.06] bg-stone-100 hover:dark:bg-white/[0.12] hover:bg-stone-200 dark:border-white/10 border-stone-300 dark:text-stone-200 text-stone-800 text-xs sm:text-sm font-semibold transition-all duration-300 shadow-sm group/btn"
                     >
                       <span>Visit Live Website</span>
-                      <ExternalLink className="w-4 h-4 text-[#c8cb6d] group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                      <ExternalLink className="w-4 h-4 dark:text-[#c8cb6d] text-[#5c6b2f] group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                     </a>
                   )}
                 </div>
@@ -165,7 +164,7 @@ export function Projects() {
                 <TiltCard
                   onClick={() => setSelectedProject(flagshipProject)}
                   maxTilt={6}
-                  className="rounded-2xl overflow-hidden border border-white/15 shadow-2xl bg-zinc-900 group cursor-pointer"
+                  className="rounded-2xl overflow-hidden border dark:border-white/15 border-stone-200 shadow-2xl bg-zinc-900 group cursor-pointer"
                 >
                   <div className="relative w-full h-72 sm:h-96 md:h-[420px]">
                     <Image
@@ -176,11 +175,11 @@ export function Projects() {
                       sizes="(max-width: 1024px) 100vw, 50vw"
                       className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-black/20" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
 
                     {/* Interactive Click Cue */}
                     <div className="absolute bottom-4 right-4 z-10">
-                      <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white/90 backdrop-blur-md text-zinc-950 text-xs font-bold shadow-lg group-hover:bg-white transition-colors">
+                      <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white/95 text-stone-950 text-xs font-bold shadow-lg group-hover:bg-white transition-colors">
                         <span>Explore Case Study</span>
                         <ChevronRight className="w-3.5 h-3.5" />
                       </span>
@@ -196,11 +195,11 @@ export function Projects() {
         {/* BENTO GRID: REMAINING 5 ENTERPRISE & WEB PROJECTS                        */}
         {/* ========================================================================= */}
         <div className="mb-8 flex items-center justify-between">
-          <h3 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+          <h3 className="text-xl sm:text-2xl font-bold dark:text-white text-stone-900 flex items-center gap-2">
             <Layers className="w-5 h-5 text-[#c8cb6d]" />
             More Selected Work ({gridProjects.length})
           </h3>
-          <span className="text-xs font-mono text-stone-500">
+          <span className="text-xs font-mono dark:text-stone-500 text-stone-600 font-semibold">
             Click any card to inspect full architecture
           </span>
         </div>

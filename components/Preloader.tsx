@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, Terminal, Code2, Cpu, CheckCircle2, Zap, Layers } from "lucide-react";
+import { Terminal, Code2, Cpu, CheckCircle2, Zap, Layers } from "lucide-react";
 
 interface PreloaderProps {
   onComplete?: () => void;
@@ -45,18 +45,18 @@ export function Preloader({ onComplete }: PreloaderProps) {
   const [isFinished, setIsFinished] = useState(false);
 
   useEffect(() => {
-    // Stage switcher (smooth transition through 3 core professional stages)
-    const stage1 = setTimeout(() => setCurrentStage(1), 600);
-    const stage2 = setTimeout(() => setCurrentStage(2), 1500);
+    // Stage switcher (relaxed, slow transition through 3 core stages)
+    const stage1 = setTimeout(() => setCurrentStage(1), 1600);
+    const stage2 = setTimeout(() => setCurrentStage(2), 3400);
 
-    // Build logs sequence
+    // Build logs sequence (paced log transitions)
     const logInterval = setInterval(() => {
       setLogIndex((prev) => (prev < buildLogs.length - 1 ? prev + 1 : prev));
-    }, 550);
+    }, 1300);
 
-    // Progress counter: 0% -> 100% in 2.5s
+    // Progress counter: 0% -> 100% in 5.8s (gentle, relaxed loading speed)
     const startTime = Date.now();
-    const duration = 2400;
+    const duration = 5800;
 
     const progressTimer = setInterval(() => {
       const elapsed = Date.now() - startTime;
@@ -68,7 +68,7 @@ export function Preloader({ onComplete }: PreloaderProps) {
         clearInterval(logInterval);
         setTimeout(() => {
           setIsCurtainFalling(true);
-        }, 220);
+        }, 500);
       }
     }, 25);
 
@@ -107,8 +107,8 @@ export function Preloader({ onComplete }: PreloaderProps) {
                 ? {
                     y: "100%",
                     transition: {
-                      duration: 0.85,
-                      delay: i * 0.065,
+                      duration: 1.0,
+                      delay: i * 0.075,
                       ease: [0.77, 0, 0.175, 1],
                     },
                   }
@@ -200,8 +200,8 @@ export function Preloader({ onComplete }: PreloaderProps) {
                     className="flex flex-col items-center justify-center text-center"
                   >
                     {introStages[currentStage].highlight ? (
-                      <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight text-stone-100 uppercase">
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffffff] via-[#e2e58c] to-[#c8cb6d] drop-shadow-[0_0_40px_rgba(200,203,109,0.45)]">
+                      <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight uppercase">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffffff] via-[#fef08a] to-[#c8cb6d] drop-shadow-[0_0_35px_rgba(200,203,109,0.6)]">
                           Hari Prasath
                         </span>
                       </h1>
@@ -209,19 +209,23 @@ export function Preloader({ onComplete }: PreloaderProps) {
                       <div className="flex flex-col items-center gap-2">
                         <div className="flex items-center gap-3 justify-center flex-wrap">
                           <Code2 className="w-8 h-8 sm:w-12 sm:h-12 text-[#10b981] animate-pulse" />
-                          <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#c8cb6d] via-[#10b981] to-[#38bdf8] uppercase">
-                            React Developer
+                          <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight uppercase">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#e2e58c] to-[#10b981] drop-shadow-[0_0_30px_rgba(16,185,129,0.5)]">
+                              React Developer
+                            </span>
                           </h1>
                         </div>
                       </div>
                     ) : (
-                      <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-stone-100 via-stone-200 to-stone-400 uppercase">
-                        {introStages[currentStage].title}
+                      <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight uppercase">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#fef08a] to-[#c8cb6d] drop-shadow-[0_0_30px_rgba(200,203,109,0.5)]">
+                          {introStages[currentStage].title}
+                        </span>
                       </h1>
                     )}
 
                     {/* Subtitle */}
-                    <p className="mt-4 text-xs sm:text-sm md:text-base font-mono tracking-widest text-[#c8cb6d] uppercase">
+                    <p className="mt-4 text-xs sm:text-sm md:text-base font-mono tracking-widest text-[#f5ea82] uppercase font-bold drop-shadow-md">
                       {introStages[currentStage].subtitle}
                     </p>
                   </motion.div>
@@ -255,7 +259,7 @@ export function Preloader({ onComplete }: PreloaderProps) {
             <div className="w-full max-w-lg flex flex-col gap-3">
               <div className="flex items-center justify-between text-xs font-mono">
                 <span className="flex items-center gap-2 text-stone-300 font-medium">
-                  <Sparkles className="w-4 h-4 text-[#c8cb6d] animate-spin" />
+                  <Code2 className="w-4 h-4 text-[#c8cb6d]" />
                   <span className="tracking-wide">COMPILING ENTERPRISE UI</span>
                 </span>
                 <span className="text-[#c8cb6d] font-bold text-sm tracking-wider">{progress}%</span>
@@ -271,9 +275,9 @@ export function Preloader({ onComplete }: PreloaderProps) {
                 </motion.div>
               </div>
 
-              <div className="flex justify-between items-center text-[11px] font-mono text-stone-500">
+              <div className="flex justify-between items-center text-[11px] font-mono text-stone-300">
                 <span>PORTFOLIO OS // SENIOR FRONTEND</span>
-                <span className="text-[#10b981] font-semibold">STATUS: OPTIMIZED</span>
+                <span className="text-[#10b981] font-bold">STATUS: OPTIMIZED</span>
               </div>
             </div>
           </motion.div>

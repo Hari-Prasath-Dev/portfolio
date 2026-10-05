@@ -26,16 +26,16 @@ export function Badge({
 
   const variantStyles = {
     default:
-      "bg-white/[0.05] text-stone-300 border border-white/10 hover:border-[#c8cb6d]/30",
-    outline: "bg-transparent text-stone-400 border border-[#c8cb6d]/25 hover:border-[#c8cb6d]/50",
-    glow: "bg-[#c8cb6d]/15 text-[#e2e58c] border border-[#c8cb6d]/35 shadow-[0_0_15px_-3px_rgba(200,203,109,0.35)]",
+      "dark:bg-white/[0.05] bg-stone-100 dark:text-stone-300 text-stone-800 dark:border-white/10 border-stone-200 hover:border-[#c8cb6d]/40",
+    outline: "bg-transparent dark:text-stone-400 text-stone-700 dark:border-[#c8cb6d]/25 border-[#5c6b2f]/35 hover:border-[#c8cb6d]/50",
+    glow: "dark:bg-[#c8cb6d]/15 bg-[#5c6b2f]/15 dark:text-[#e2e58c] text-[#344415] dark:border-[#c8cb6d]/35 border-[#5c6b2f]/35 dark:shadow-[0_0_15px_-3px_rgba(200,203,109,0.35)] shadow-sm font-semibold",
     accent:
-      "bg-gradient-to-r from-[#7e8a42]/20 via-[#c8cb6d]/20 to-[#e69832]/20 text-[#e2e58c] border border-[#c8cb6d]/35",
-    cyan: "bg-[#c8cb6d]/15 text-[#e2e58c] border border-[#c8cb6d]/25 shadow-[0_0_15px_-3px_rgba(200,203,109,0.25)]",
+      "dark:bg-gradient-to-r dark:from-[#7e8a42]/20 dark:via-[#c8cb6d]/20 dark:to-[#e69832]/20 bg-[#5c6b2f]/15 dark:text-[#e2e58c] text-[#344415] dark:border-[#c8cb6d]/35 border-[#5c6b2f]/35 font-semibold",
+    cyan: "dark:bg-[#c8cb6d]/15 bg-[#5c6b2f]/15 dark:text-[#e2e58c] text-[#344415] dark:border-[#c8cb6d]/25 border-[#5c6b2f]/30 font-medium",
     purple:
-      "bg-[#7e8a42]/15 text-[#c8cb6d] border border-[#7e8a42]/30 shadow-[0_0_15px_-3px_rgba(126,138,66,0.25)]",
-    sage: "bg-[#c8cb6d]/15 text-[#e2e58c] border border-[#c8cb6d]/30 shadow-[0_0_15px_-3px_rgba(200,203,109,0.25)]",
-    olive: "bg-[#7e8a42]/15 text-[#c8cb6d] border border-[#7e8a42]/30 shadow-[0_0_15px_-3px_rgba(126,138,66,0.25)]",
+      "dark:bg-[#7e8a42]/15 bg-[#5c6b2f]/15 dark:text-[#c8cb6d] text-[#344415] dark:border-[#7e8a42]/30 border-[#5c6b2f]/30 font-medium",
+    sage: "dark:bg-[#c8cb6d]/15 bg-[#5c6b2f]/15 dark:text-[#e2e58c] text-[#344415] dark:border-[#c8cb6d]/30 border-[#5c6b2f]/30 font-medium",
+    olive: "dark:bg-[#7e8a42]/15 bg-[#5c6b2f]/15 dark:text-[#c8cb6d] text-[#344415] dark:border-[#7e8a42]/30 border-[#5c6b2f]/30 font-medium",
   };
 
   return (

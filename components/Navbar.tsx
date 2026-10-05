@@ -6,7 +6,6 @@ import { personalData } from "@/lib/data";
 import { 
   Menu, 
   X, 
-  Sparkles, 
   ArrowUpRight, 
   Download, 
   Code2, 
@@ -17,6 +16,7 @@ import {
   Mail 
 } from "lucide-react";
 import { Button } from "./ui/Button";
+import { ThemeToggle } from "./ui/ThemeToggle";
 
 const navLinks = [
   { name: "About", href: "#about", icon: User },
@@ -79,7 +79,7 @@ export function Navbar() {
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-stone-950/90 backdrop-blur-xl border-b border-white/10 shadow-2xl shadow-black/50 py-3 px-4 sm:px-6 lg:px-8"
+            ? "dark:bg-stone-950/90 bg-white/90 backdrop-blur-xl dark:border-white/10 border-stone-200 shadow-xl py-3 px-4 sm:px-6 lg:px-8"
             : "bg-transparent py-4 sm:py-5 px-4 sm:px-6 lg:px-8"
         }`}
       >
@@ -87,40 +87,40 @@ export function Navbar() {
           {/* Logo / Brand */}
           <a
             href="#hero"
-            className="group flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-stone-900/90 hover:bg-stone-800/95 border border-white/15 shadow-lg shadow-black/40 backdrop-blur-md transition-all duration-200"
+            className="group flex items-center gap-2.5 px-3 py-1.5 rounded-full dark:bg-stone-900/90 bg-white/90 hover:dark:bg-stone-800/95 hover:bg-stone-50 dark:border-white/15 border-stone-200 shadow-sm backdrop-blur-md transition-all duration-200"
           >
             <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#7e8a42] via-[#9bae4f] to-[#c8cb6d] flex items-center justify-center text-stone-950 font-black text-sm shadow-md shadow-[#c8cb6d]/30 group-hover:scale-105 transition-transform">
               HP
             </div>
             <div className="flex flex-col">
-              <span className="text-sm font-semibold text-stone-100 tracking-tight flex items-center gap-1.5">
+              <span className="text-sm font-bold dark:text-stone-100 text-stone-900 tracking-tight flex items-center gap-1.5">
                 {personalData.name}
-                <span className="w-1.5 h-1.5 rounded-full bg-[#c8cb6d] animate-pulse" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#10b981] animate-pulse" />
               </span>
-              <span className="text-[10px] text-stone-400 uppercase tracking-widest font-mono">
+              <span className="text-[10px] dark:text-stone-400 text-stone-600 uppercase tracking-widest font-mono font-semibold">
                 Frontend Dev
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 px-4 py-1.5 rounded-full bg-stone-900/90 backdrop-blur-md border border-white/15 shadow-xl shadow-black/40">
+          <nav className="hidden lg:flex items-center gap-1 px-4 py-1.5 rounded-full dark:bg-stone-900/90 bg-white/90 backdrop-blur-md dark:border-white/15 border-stone-200 shadow-md">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.substring(1);
               return (
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`relative px-4 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
+                  className={`relative px-4 py-1.5 text-xs font-semibold rounded-full transition-all duration-200 ${
                     isActive
-                      ? "text-white"
-                      : "text-stone-400 hover:text-white hover:bg-white/[0.06]"
+                      ? "dark:text-white text-stone-950 font-bold"
+                      : "dark:text-stone-400 text-stone-700 hover:dark:text-white hover:text-stone-950 hover:dark:bg-white/[0.06] hover:bg-stone-100"
                   }`}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="activeNavIndicator"
-                      className="absolute inset-0 rounded-full bg-[#c8cb6d]/[0.18] border border-[#c8cb6d]/40 shadow-inner"
+                      className="absolute inset-0 rounded-full dark:bg-[#c8cb6d]/[0.18] bg-[#5c6b2f]/15 border dark:border-[#c8cb6d]/40 border-[#5c6b2f]/30 shadow-inner"
                       transition={{ type: "spring", stiffness: 350, damping: 30 }}
                     />
                   )}
@@ -131,23 +131,23 @@ export function Navbar() {
           </nav>
 
           {/* Right Action CTAs */}
-          <div className="hidden sm:flex items-center gap-2.5">
+          <div className="hidden sm:flex items-center gap-2.5 mr-12 sm:mr-16 lg:mr-20">
             <a
               href={personalData.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
               download="Hari_Prasath_Resume.pdf"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-stone-200 hover:text-[#e2e58c] px-3.5 py-2 rounded-xl bg-stone-900/90 hover:bg-stone-800/95 border border-[#c8cb6d]/30 hover:border-[#c8cb6d]/60 shadow-lg backdrop-blur-md transition-all duration-200 group"
+              className="inline-flex items-center gap-1.5 text-xs font-bold dark:text-stone-200 text-stone-800 hover:dark:text-[#e2e58c] hover:text-[#5c6b2f] px-3.5 py-2 rounded-xl dark:bg-stone-900/90 bg-white hover:dark:bg-stone-800/95 hover:bg-stone-50 border dark:border-[#c8cb6d]/30 border-stone-200 shadow-sm backdrop-blur-md transition-all duration-200 group"
             >
-              <Download className="w-3.5 h-3.5 text-[#c8cb6d] group-hover:translate-y-0.5 transition-transform" />
+              <Download className="w-3.5 h-3.5 dark:text-[#c8cb6d] text-[#5c6b2f] group-hover:translate-y-0.5 transition-transform" />
               <span>Resume</span>
             </a>
 
             <a
               href={`mailto:${personalData.contact.email}`}
-              className="inline-flex items-center gap-2 text-xs font-medium text-stone-300 hover:text-white px-3.5 py-2 rounded-xl bg-stone-900/90 hover:bg-stone-800/95 border border-white/15 shadow-lg backdrop-blur-md transition-all duration-200"
+              className="inline-flex items-center gap-2 text-xs font-semibold dark:text-stone-300 text-stone-800 hover:dark:text-white hover:text-stone-950 px-3.5 py-2 rounded-xl dark:bg-stone-900/90 bg-white hover:dark:bg-stone-800/95 hover:bg-stone-50 border dark:border-white/15 border-stone-200 shadow-sm backdrop-blur-md transition-all duration-200"
             >
-              <Sparkles className="w-3.5 h-3.5 text-[#c8cb6d]" />
+              <span className="w-2 h-2 rounded-full bg-[#10b981] animate-pulse" />
               <span>Available for Hire</span>
             </a>
 
@@ -162,14 +162,16 @@ export function Navbar() {
             </a>
           </div>
 
-          {/* Mobile Menu Toggle Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-xl bg-stone-900/90 backdrop-blur-md border border-white/15 text-zinc-300 hover:text-white hover:bg-white/[0.08] transition-colors"
-            aria-label="Toggle Navigation Menu"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile Right Bar: Theme Toggle + Menu Button */}
+          <div className="flex lg:hidden items-center gap-2 mr-10 sm:mr-14">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 rounded-xl dark:bg-stone-900/90 bg-white backdrop-blur-md border dark:border-white/15 border-stone-200 dark:text-zinc-300 text-stone-800 hover:dark:text-white hover:text-stone-950 hover:dark:bg-white/[0.08] hover:bg-stone-100 transition-colors shadow-sm"
+              aria-label="Toggle Navigation Menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </motion.header>
 

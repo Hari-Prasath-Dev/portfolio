@@ -36,16 +36,16 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variantStyles = {
       primary:
-        "bg-[#c8cb6d] text-stone-950 hover:bg-[#d8db81] active:scale-[0.98] shadow-lg shadow-[#c8cb6d]/20 font-semibold",
+        "bg-[#c8cb6d] text-stone-950 hover:bg-[#d8db81] active:scale-[0.98] shadow-lg shadow-[#c8cb6d]/20 font-bold",
       secondary:
-        "bg-white/[0.06] text-stone-200 hover:bg-white/[0.12] border border-white/10 active:scale-[0.98]",
+        "dark:bg-white/[0.06] bg-stone-100 dark:text-stone-200 text-stone-800 hover:dark:bg-white/[0.12] hover:bg-stone-200 dark:border-white/10 border-stone-300 font-semibold active:scale-[0.98]",
       outline:
-        "bg-transparent text-stone-200 border border-[#c8cb6d]/30 hover:border-[#c8cb6d]/60 hover:bg-[#c8cb6d]/[0.08] active:scale-[0.98]",
+        "dark:bg-transparent bg-white/95 dark:text-stone-200 text-stone-800 dark:border-[#c8cb6d]/35 border-stone-300 hover:dark:border-[#c8cb6d]/60 hover:border-[#5c6b2f] hover:dark:bg-[#c8cb6d]/[0.08] hover:bg-stone-100 font-semibold active:scale-[0.98] shadow-sm",
       ghost:
-        "bg-transparent text-stone-400 hover:text-stone-100 hover:bg-white/[0.06] active:scale-[0.98]",
+        "bg-transparent dark:text-stone-400 text-stone-700 hover:dark:text-stone-100 hover:text-stone-950 hover:dark:bg-white/[0.06] hover:bg-stone-100 active:scale-[0.98]",
       gradient:
-        "bg-gradient-to-r from-[#7e8a42] via-[#9bae4f] to-[#c8cb6d] text-stone-950 font-bold hover:opacity-95 shadow-lg shadow-[#c8cb6d]/25 active:scale-[0.98] border border-white/20",
-      glow: "bg-[#c8cb6d]/15 text-[#e2e58c] border border-[#c8cb6d]/40 hover:bg-[#c8cb6d]/25 shadow-[0_0_25px_-5px_rgba(200,203,109,0.4)] active:scale-[0.98]",
+        "bg-gradient-to-r from-[#7e8a42] via-[#9bae4f] to-[#c8cb6d] text-stone-950 font-black hover:opacity-95 shadow-lg shadow-[#c8cb6d]/25 active:scale-[0.98] border border-white/20",
+      glow: "dark:bg-[#c8cb6d]/15 bg-[#5c6b2f]/15 dark:text-[#e2e58c] text-[#344415] dark:border-[#c8cb6d]/40 border-[#5c6b2f]/40 hover:dark:bg-[#c8cb6d]/25 hover:bg-[#5c6b2f]/25 font-bold shadow-sm active:scale-[0.98]",
     };
 
     return (

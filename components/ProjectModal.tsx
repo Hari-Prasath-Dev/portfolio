@@ -66,19 +66,19 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl bg-zinc-950 border border-white/15 shadow-2xl text-left my-auto"
+            className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl dark:bg-zinc-950 bg-white dark:border-white/15 border-stone-200 shadow-2xl text-left my-auto transition-colors duration-300"
           >
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 sm:top-6 sm:right-6 z-20 p-2.5 rounded-full bg-zinc-900/80 hover:bg-zinc-800 border border-white/15 text-zinc-400 hover:text-white transition-colors cursor-pointer"
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 z-20 p-2.5 rounded-full dark:bg-zinc-900/80 bg-stone-100/90 hover:dark:bg-zinc-800 hover:bg-stone-200 dark:border-white/15 border-stone-200 dark:text-zinc-400 text-stone-600 hover:dark:text-white hover:text-stone-950 transition-colors cursor-pointer shadow-sm"
               aria-label="Close Project Modal"
             >
               <X className="w-5 h-5" />
             </button>
 
             {/* Modal Hero Preview Image */}
-            <div className="relative w-full h-64 sm:h-80 md:h-96 bg-zinc-900 overflow-hidden border-b border-white/10">
+            <div className="relative w-full h-64 sm:h-80 md:h-96 bg-zinc-900 overflow-hidden border-b dark:border-white/10 border-stone-200">
               <Image
                 src={project.image}
                 alt={project.title}
@@ -87,7 +87,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 sizes="(max-width: 1024px) 100vw, 80vw"
                 className="object-cover object-top"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
               {/* Badges on Hero */} 
               <div className="absolute bottom-6 left-6 right-6 flex flex-wrap items-center justify-between gap-3">
@@ -102,7 +102,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
                 <div className="flex flex-wrap items-center gap-2">
                   {project.client && (
-                    <div className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full bg-[#c8cb6d]/20 text-[#e2e58c] border border-[#c8cb6d]/30">
+                    <div className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full bg-black/60 text-[#e2e58c] border border-white/20 backdrop-blur-md">
                       <Globe2 className="w-3.5 h-3.5 text-[#c8cb6d]" />
                       <span>{project.client}</span>
                     </div>
@@ -126,23 +126,23 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             <div className="p-6 sm:p-8 md:p-10 space-y-8">
               {/* Title & Subtitle */}
               <div>
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-2">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold dark:text-white text-stone-900 mb-2 tracking-tight">
                   {project.title}
                 </h3>
-                <p className="text-base text-stone-400 font-medium">
+                <p className="text-base dark:text-stone-400 text-stone-600 font-medium">
                   {project.subtitle}
                 </p>
               </div>
 
               {/* Metrics Highlights (if available) */}
               {project.metrics && project.metrics.length > 0 && (
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-4 rounded-2xl glass-panel border border-white/10">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-4 rounded-2xl dark:bg-white/[0.04] bg-stone-50 border dark:border-white/10 border-stone-200 shadow-sm">
                   {project.metrics.map((m) => (
                     <div key={m.label} className="text-center p-2">
                       <p className="text-lg sm:text-xl font-bold text-gradient-primary">
                         {m.value}
                       </p>
-                      <p className="text-[11px] font-mono text-stone-400 mt-0.5">
+                      <p className="text-[11px] font-mono dark:text-stone-400 text-stone-600 mt-0.5 font-medium">
                         {m.label}
                       </p>
                     </div>
@@ -152,11 +152,11 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
               {/* Full Overview */}
               <div>
-                <h4 className="text-base font-bold text-white mb-2 flex items-center gap-2">
+                <h4 className="text-base font-bold dark:text-white text-stone-900 mb-2 flex items-center gap-2">
                   <Layers className="w-4 h-4 text-[#c8cb6d]" />
                   Overview
                 </h4>
-                <p className="text-sm sm:text-base text-stone-300 leading-relaxed">
+                <p className="text-sm sm:text-base dark:text-stone-300 text-stone-700 leading-relaxed font-normal">
                   {project.fullOverview}
                 </p>
               </div>
@@ -164,17 +164,17 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               {/* Modules Breakdown (for Flagship Syncraze) */}
               {project.modules && project.modules.length > 0 && (
                 <div>
-                  <h4 className="text-base font-bold text-white mb-3 flex items-center gap-2">
-                    <LayoutDashboard className="w-4 h-4 text-[#e2e58c]" />
+                  <h4 className="text-base font-bold dark:text-white text-stone-900 mb-3 flex items-center gap-2">
+                    <LayoutDashboard className="w-4 h-4 text-[#c8cb6d]" />
                     Delivered Modules & Sub-systems ({project.modules.length})
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
                     {project.modules.map((mod) => (
                       <div
                         key={mod}
-                        className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/[0.04] border border-white/10 text-xs text-stone-300 font-medium"
+                        className="flex items-center gap-2 px-3.5 py-2 rounded-xl dark:bg-white/[0.04] bg-stone-50 border dark:border-white/10 border-stone-200 text-xs dark:text-stone-300 text-stone-800 font-semibold shadow-sm"
                       >
-                        <ShieldCheck className="w-3.5 h-3.5 text-[#c8cb6d] shrink-0" />
+                        <ShieldCheck className="w-3.5 h-3.5 text-[#10b981] shrink-0" />
                         <span>{mod}</span>
                       </div>
                     ))}
@@ -184,7 +184,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
               {/* Roles & Key Contributions */}
               <div>
-                <h4 className="text-base font-bold text-white mb-3 flex items-center gap-2">
+                <h4 className="text-base font-bold dark:text-white text-stone-900 mb-3 flex items-center gap-2">
                   <Zap className="w-4 h-4 text-[#c8cb6d]" />
                   Key Roles & Engineering Contributions
                 </h4>
@@ -192,7 +192,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                   {project.responsibilities.map((resp, idx) => (
                     <div
                       key={idx}
-                      className="flex items-start gap-3 text-sm text-stone-300 leading-relaxed"
+                      className="flex items-start gap-3 text-sm dark:text-stone-300 text-stone-700 leading-relaxed"
                     >
                       <CheckCircle2 className="w-4 h-4 text-[#c8cb6d] shrink-0 mt-0.5" />
                       <span>{resp}</span>
@@ -203,7 +203,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
               {/* Tech Stack Chips */}
               <div>
-                <h4 className="text-sm font-bold text-stone-400 uppercase font-mono tracking-wider mb-3">
+                <h4 className="text-sm font-bold dark:text-stone-400 text-stone-700 uppercase font-mono tracking-wider mb-3">
                   Technologies Utilized
                 </h4>
                 <div className="flex flex-wrap gap-2">
@@ -221,8 +221,8 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               </div>
 
               {/* Footer Modal Actions */}
-              <div className="pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
-                <p className="text-xs text-stone-500 font-mono">
+              <div className="pt-6 border-t dark:border-white/10 border-stone-200 flex flex-wrap items-center justify-between gap-4">
+                <p className="text-xs dark:text-stone-500 text-stone-500 font-mono">
                   Verified Frontend Deliverable • Production Ready
                 </p>
                 <div className="flex items-center gap-3">

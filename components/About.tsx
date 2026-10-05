@@ -7,7 +7,6 @@ import { SectionHeading } from "./ui/SectionHeading";
 import { TiltCard } from "./ui/TiltCard";
 import { StatCounter } from "./ui/StatCounter";
 import { 
-  Sparkles, 
   Layers, 
   Gauge, 
   Globe, 
@@ -64,35 +63,35 @@ export function About() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-6 flex flex-col gap-6"
           >
-            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-3xl border border-white/10 relative overflow-hidden shadow-2xl">
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-3xl border dark:border-white/10 border-stone-200 relative overflow-hidden shadow-xl">
               <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-[#c8cb6d]/10 to-transparent pointer-events-none" />
 
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-[#c8cb6d]/15 border border-[#c8cb6d]/30 flex items-center justify-center text-[#c8cb6d] shrink-0">
+                <div className="w-10 h-10 rounded-xl dark:bg-[#c8cb6d]/15 bg-[#5c6b2f]/15 border dark:border-[#c8cb6d]/30 border-[#5c6b2f]/30 flex items-center justify-center dark:text-[#c8cb6d] text-[#5c6b2f] shrink-0">
                   <Terminal className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-lg sm:text-xl font-bold text-white">The Engineering Mindset</h3>
-                  <p className="text-xs font-mono text-stone-400">Frontend Developer & Specialist</p>
+                  <h3 className="text-lg sm:text-xl font-bold dark:text-white text-stone-900">The Engineering Mindset</h3>
+                  <p className="text-xs font-mono dark:text-stone-400 text-stone-600 font-semibold">Frontend Developer & Specialist</p>
                 </div>
               </div>
 
-              <div className="space-y-4 text-stone-300 text-xs sm:text-base leading-relaxed">
+              <div className="space-y-4 dark:text-stone-300 text-stone-800 text-xs sm:text-base leading-relaxed font-normal">
                 {personalData.aboutBio.map((paragraph, idx) => (
                   <p key={idx}>{paragraph}</p>
                 ))}
               </div>
 
               {/* Verified Tag & Resume CTA */}
-              <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="mt-8 pt-6 border-t dark:border-white/10 border-stone-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="flex flex-col gap-2">
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#c8cb6d] shrink-0" />
-                    <span className="text-xs font-medium text-stone-300">Clean Code & Architecture</span>
+                    <CheckCircle2 className="w-4 h-4 dark:text-[#c8cb6d] text-[#5c6b2f] shrink-0" />
+                    <span className="text-xs font-semibold dark:text-stone-300 text-stone-800">Clean Code & Architecture</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#e2e58c] shrink-0" />
-                    <span className="text-xs font-medium text-stone-300">Agile & Cross-Functional</span>
+                    <CheckCircle2 className="w-4 h-4 dark:text-[#e2e58c] text-[#5c6b2f] shrink-0" />
+                    <span className="text-xs font-semibold dark:text-stone-300 text-stone-800">Agile & Cross-Functional</span>
                   </div>
                 </div>
 
@@ -101,9 +100,9 @@ export function About() {
                   target="_blank"
                   rel="noopener noreferrer"
                   download="Hari_Prasath_Resume.pdf"
-                  className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#7e8a42]/30 to-[#c8cb6d]/30 hover:from-[#7e8a42]/50 hover:to-[#c8cb6d]/50 border border-[#c8cb6d]/40 text-white font-semibold text-xs transition-all shadow-lg hover:shadow-[#c8cb6d]/20 group shrink-0"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl dark:bg-gradient-to-r dark:from-[#7e8a42]/30 dark:to-[#c8cb6d]/30 bg-[#5c6b2f]/15 hover:dark:from-[#7e8a42]/50 hover:dark:to-[#c8cb6d]/50 hover:bg-[#5c6b2f]/25 border dark:border-[#c8cb6d]/40 border-[#5c6b2f]/40 dark:text-white text-[#344415] font-bold text-xs transition-all shadow-md shrink-0"
                 >
-                  <Download className="w-3.5 h-3.5 text-[#c8cb6d] group-hover:translate-y-0.5 transition-transform" />
+                  <Download className="w-3.5 h-3.5 dark:text-[#c8cb6d] text-[#5c6b2f] group-hover:translate-y-0.5 transition-transform" />
                   <span>Download Full CV</span>
                 </a>
               </div>
@@ -123,11 +122,11 @@ export function About() {
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                   className="h-full"
                 >
-                  <TiltCard className="h-full glass-card p-4 sm:p-7 rounded-2xl border border-white/10 hover:border-[#c8cb6d]/40 transition-all duration-300 text-center flex flex-col items-center justify-center relative group">
+                  <TiltCard className="h-full glass-card p-4 sm:p-7 rounded-2xl border dark:border-white/10 border-stone-200 hover:border-[#c8cb6d]/40 transition-all duration-300 text-center flex flex-col items-center justify-center relative group shadow-sm">
                     <div className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black text-gradient-primary mb-1 sm:mb-2">
                       <StatCounter value={stat.value} suffix={stat.suffix} />
                     </div>
-                    <p className="text-[11px] sm:text-sm font-medium text-stone-400">
+                    <p className="text-[11px] sm:text-sm font-semibold dark:text-stone-400 text-stone-700">
                       {stat.label}
                     </p>
                   </TiltCard>
@@ -146,16 +145,16 @@ export function About() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
-                    className="p-4 sm:p-5 rounded-2xl glass-panel border border-white/10 hover:border-[#c8cb6d]/30 transition-all duration-300 flex items-start gap-3.5"
+                    className="p-4 sm:p-5 rounded-2xl glass-panel border dark:border-white/10 border-stone-200 hover:border-[#c8cb6d]/30 transition-all duration-300 flex items-start gap-3.5 shadow-sm"
                   >
-                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center text-[#c8cb6d] shrink-0">
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl dark:bg-white/[0.05] bg-stone-100 border dark:border-white/10 border-stone-200 flex items-center justify-center dark:text-[#c8cb6d] text-[#5c6b2f] shrink-0">
                       <Icon className="w-4 h-4" />
                     </div>
                     <div>
-                      <h4 className="text-xs sm:text-sm font-semibold text-white mb-1">
+                      <h4 className="text-xs sm:text-sm font-bold dark:text-white text-stone-900 mb-1">
                         {item.title}
                       </h4>
-                      <p className="text-[11px] sm:text-xs text-stone-400 leading-relaxed">
+                      <p className="text-[11px] sm:text-xs dark:text-stone-400 text-stone-700 leading-relaxed font-normal">
                         {item.desc}
                       </p>
                     </div>

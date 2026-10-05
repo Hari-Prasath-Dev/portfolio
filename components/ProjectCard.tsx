@@ -6,7 +6,7 @@ import { Project } from "@/lib/data";
 import { TiltCard } from "./ui/TiltCard";
 import { Badge } from "./ui/Badge";
 import { getTechIcon } from "./ui/TechIcons";
-import { ArrowUpRight, Sparkles, Layers, Eye, ExternalLink, Globe } from "lucide-react";
+import { ArrowUpRight, Layers, Eye, ExternalLink, Globe } from "lucide-react";
 import Image from "next/image";
 
 interface ProjectCardProps {
@@ -43,7 +43,7 @@ export function ProjectCard({ project, onSelect, index = 0 }: ProjectCardProps) 
             {/* Top Superpower Badge & Live Pill */}
             <div className="absolute top-3 left-3 right-3 z-10 flex items-center justify-between gap-2">
               <Badge variant="accent" size="sm">
-                <Sparkles className="w-3 h-3 text-[#c8cb6d]" />
+                <Layers className="w-3 h-3 text-[#c8cb6d]" />
                 <span>{project.superpower}</span>
               </Badge>
 
@@ -86,25 +86,25 @@ export function ProjectCard({ project, onSelect, index = 0 }: ProjectCardProps) 
 
           {/* Category */}
           <div className="flex items-center justify-between gap-2 mb-2">
-            <span className="text-[11px] font-mono uppercase tracking-wider text-[#c8cb6d]">
+            <span className="text-[11px] font-mono uppercase tracking-wider dark:text-[#c8cb6d] text-[#344415] font-bold">
               {project.category}
             </span>
           </div>
 
           {/* Title */}
-          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#c8cb6d] transition-colors flex items-center justify-between">
+          <h3 className="text-xl font-bold dark:text-white text-stone-900 mb-2 group-hover:text-[#c8cb6d] transition-colors flex items-center justify-between">
             <span>{project.title}</span>
             <ArrowUpRight className="w-4 h-4 text-stone-500 group-hover:text-[#c8cb6d] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
           </h3>
 
           {/* Description */}
-          <p className="text-xs sm:text-sm text-stone-400 leading-relaxed line-clamp-2 mb-5">
+          <p className="text-xs sm:text-sm dark:text-stone-400 text-stone-700 leading-relaxed line-clamp-2 mb-5 font-normal">
             {project.description}
           </p>
         </div>
 
         {/* Tech Stack Footer */}
-        <div className="pt-4 border-t border-white/[0.08] flex flex-wrap gap-1.5">
+        <div className="pt-4 border-t dark:border-white/[0.08] border-stone-200 flex flex-wrap gap-1.5">
           {project.techStack.slice(0, 4).map((tech) => (
             <Badge
               key={tech}
@@ -116,7 +116,7 @@ export function ProjectCard({ project, onSelect, index = 0 }: ProjectCardProps) 
             </Badge>
           ))}
           {project.techStack.length > 4 && (
-            <span className="text-[10px] text-stone-500 font-mono self-center ml-1">
+            <span className="text-[10px] dark:text-stone-500 text-stone-600 font-mono self-center ml-1 font-semibold">
               +{project.techStack.length - 4} more
             </span>
           )}

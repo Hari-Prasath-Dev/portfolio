@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { personalData } from "@/lib/data";
 import { Button } from "./ui/Button";
 import { MagneticButton } from "./ui/MagneticButton";
@@ -17,19 +17,28 @@ import {
   GitIcon,
   GithubIcon,
   NodejsIcon,
+  TailwindIcon,
+  MongodbIcon,
+  ExpressIcon,
+  MysqlIcon,
+  PhpIcon,
 } from "./ui/TechIcons";
 import { 
   ArrowDown, 
   Mail, 
   Phone, 
-  Sparkles, 
   Code, 
   ExternalLink,
   ChevronDown,
   Layers,
   Zap,
   Globe2,
-  Download
+  Download,
+  Folder,
+  FolderOpen,
+  FileCode,
+  Terminal,
+  ChevronRight
 } from "lucide-react";
 import Image from "next/image";
 
@@ -37,6 +46,46 @@ export function Hero() {
   const [taglineIndex, setTaglineIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+  const [activeFolder, setActiveFolder] = useState<"frontend" | "backend" | "tools">("frontend");
+
+  const techFolders = {
+    frontend: {
+      folderName: "frontend",
+      path: "src/frontend",
+      label: "Frontend",
+      files: [
+        { file: "React.tsx", name: "React.js", icon: <ReactIcon className="w-5 h-5 sm:w-6 sm:h-6" /> },
+        { file: "Next.app", name: "Next.js", icon: <NextjsIcon className="w-5 h-5 sm:w-6 sm:h-6" /> },
+        { file: "Types.ts", name: "TypeScript", icon: <TypeScriptIcon className="w-5 h-5 sm:w-6 sm:h-6" /> },
+        { file: "Index.js", name: "JavaScript", icon: <JavaScriptIcon className="w-5 h-5 sm:w-6 sm:h-6" /> },
+        { file: "Style.css", name: "Tailwind CSS", icon: <TailwindIcon className="w-5 h-5 sm:w-6 sm:h-6" /> },
+      ],
+    },
+    backend: {
+      folderName: "backend-db",
+      path: "src/backend-db",
+      label: "Backend & DB",
+      files: [
+        { file: "Server.js", name: "Node.js", icon: <NodejsIcon className="w-5 h-5 sm:w-6 sm:h-6" /> },
+        { file: "App.ts", name: "Express.js", icon: <ExpressIcon className="w-5 h-5 sm:w-6 sm:h-6" /> },
+        { file: "Data.db", name: "MongoDB", icon: <MongodbIcon className="w-5 h-5 sm:w-6 sm:h-6" /> },
+        { file: "Schema.sql", name: "MySQL", icon: <MysqlIcon className="w-5 h-5 sm:w-6 sm:h-6" /> },
+        { file: "Core.php", name: "PHP", icon: <PhpIcon className="w-5 h-5 sm:w-6 sm:h-6" /> },
+      ],
+    },
+    tools: {
+      folderName: "state-tools",
+      path: "src/state-tools",
+      label: "Tools & Store",
+      files: [
+        { file: "Store.ts", name: "Redux", icon: <ReduxIcon className="w-5 h-5 sm:w-6 sm:h-6" /> },
+        { file: "Query.ts", name: "React Query", icon: <ReactQueryIcon className="w-5 h-5 sm:w-6 sm:h-6" /> },
+        { file: "Theme.tsx", name: "MUI", icon: <MuiIcon className="w-5 h-5 sm:w-6 sm:h-6" /> },
+        { file: "VCS.git", name: "Git", icon: <GitIcon className="w-5 h-5 sm:w-6 sm:h-6" /> },
+        { file: "Repo.hub", name: "GitHub", icon: <GithubIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white" /> },
+      ],
+    },
+  };
 
   // Typewriter effect logic
   useEffect(() => {
@@ -107,13 +156,13 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.05] border border-white/10 backdrop-blur-md mb-6 shadow-lg shadow-black/20 hover:border-[#c8cb6d]/40 transition-all duration-300"
+              className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full dark:bg-white/[0.05] bg-stone-100/90 border dark:border-white/10 border-stone-200 backdrop-blur-md mb-6 shadow-sm hover:border-[#c8cb6d]/40 transition-all duration-300"
             >
               <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#c8cb6d] opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#c8cb6d]" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10b981] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#10b981]" />
               </span>
-              <span className="text-xs font-medium text-stone-300">
+              <span className="text-xs font-semibold dark:text-stone-300 text-stone-800">
                 Available for New Projects & Opportunities
               </span>
             </motion.div>
@@ -123,10 +172,10 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-base sm:text-lg font-mono text-stone-400 mb-2 flex items-center gap-2 justify-center lg:justify-start"
+              className="text-base sm:text-lg font-mono dark:text-stone-400 text-stone-700 mb-2 flex items-center gap-2 justify-center lg:justify-start font-semibold"
             >
               <span>Hey, I&apos;m</span>
-              <span className="inline-block w-8 h-[1px] bg-stone-600" />
+              <span className="inline-block w-8 h-[1px] dark:bg-stone-600 bg-stone-400" />
             </motion.p>
 
             {/* Main Name Heading */}
@@ -134,7 +183,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-white leading-[1.08] mb-4"
+              className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight dark:text-white text-stone-950 leading-[1.08] mb-4"
             >
               <span className="text-gradient-primary">Hari Prasath</span>
             </motion.h1>
@@ -146,7 +195,7 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.25 }}
               className="flex flex-wrap items-center justify-center lg:justify-start gap-2 text-xl xs:text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-6 min-h-[40px] h-auto"
             >
-              <span className="text-stone-400">Crafting as a</span>
+              <span className="dark:text-stone-400 text-stone-700 font-bold">Crafting as a</span>
               <span className="text-gradient-accent text-left">
                 {displayText}
                 <span className="inline-block w-[3px] h-5 sm:h-8 bg-[#c8cb6d] ml-1 animate-pulse align-middle" />
@@ -158,9 +207,9 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.35 }}
-              className="text-sm sm:text-lg text-stone-300 max-w-xl mb-8 leading-relaxed px-2 sm:px-0"
+              className="text-sm sm:text-lg dark:text-stone-300 text-stone-800 max-w-xl mb-8 leading-relaxed px-2 sm:px-0 font-medium"
             >
-              Building scalable, buttery-smooth web applications with <span className="text-stone-100 font-semibold">3+ years of experience</span>. Specializing in <span className="text-[#c8cb6d] font-medium">React.js</span>, <span className="text-[#e2e58c] font-medium">Next.js</span>, and enterprise platforms engineered for global reach.
+              Building scalable, buttery-smooth web applications with <span className="dark:text-stone-100 text-stone-950 font-bold">3+ years of experience</span>. Specializing in <span className="dark:text-[#c8cb6d] text-[#3e501d] font-bold">React.js</span>, <span className="dark:text-[#e2e58c] text-[#4d5e24] font-bold">Next.js</span>, and enterprise platforms engineered for global reach.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -175,7 +224,7 @@ export function Hero() {
                   <Button
                     variant="gradient"
                     size="lg"
-                    icon={<Sparkles className="w-4 h-4" />}
+                    icon={<ArrowDown className="w-4 h-4" />}
                     className="w-full sm:w-auto shadow-xl shadow-[#c8cb6d]/20"
                   >
                     View My Work
@@ -194,8 +243,8 @@ export function Hero() {
                   <Button
                     variant="outline"
                     size="lg"
-                    icon={<Download className="w-4 h-4 text-[#c8cb6d]" />}
-                    className="w-full sm:w-auto glass-card hover:border-[#c8cb6d]/50"
+                    icon={<Download className="w-4 h-4 dark:text-[#c8cb6d] text-[#4d5e24]" />}
+                    className="w-full sm:w-auto shadow-sm"
                   >
                     Download CV
                   </Button>
@@ -207,57 +256,98 @@ export function Hero() {
                   <Button
                     variant="outline"
                     size="lg"
-                    icon={<Code className="w-4 h-4 text-[#c8cb6d]" />}
-                    className="w-full sm:w-auto glass-card hover:border-[#c8cb6d]/50"
+                    icon={<Code className="w-4 h-4 dark:text-[#c8cb6d] text-[#4d5e24]" />}
+                    className="w-full sm:w-auto shadow-sm"
                   >
-                    Interactive IDE
+                    Work Experience
                   </Button>
                 </a>
               </MagneticButton>
             </motion.div>
 
-            {/* Tech Stack Grid matching reference */}
+            {/* Interactive Tech Stack Nexus Deck */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.55 }}
-              className="w-full mb-8"
+              className="w-full mb-8 max-w-[480px] mx-auto lg:mx-0"
             >
-              <div className="flex items-center gap-2 mb-3.5 justify-center lg:justify-start">
-                <span className="text-xs font-bold uppercase tracking-wider text-stone-300">
-                  Tech Stack
-                </span>
-                <span className="w-12 h-[1px] bg-stone-700/80" />
-              </div>
+              <a
+                href="#skills"
+                className="group block p-4 rounded-3xl dark:bg-zinc-950/80 bg-white dark:border-white/10 border-stone-200 hover:border-[#c8cb6d]/60 shadow-xl backdrop-blur-xl transition-all duration-300 relative overflow-hidden"
+              >
+                {/* Ambient Corner Glow */}
+                <div className="absolute -top-12 -right-12 w-28 h-28 rounded-full bg-[#c8cb6d]/15 blur-2xl group-hover:bg-[#c8cb6d]/30 transition-all pointer-events-none" />
 
-              <div className="grid grid-cols-5 gap-2 sm:gap-3 max-w-[420px] mx-auto lg:mx-0">
-                {[
-                  { name: "React.js", icon: <ReactIcon className="w-5 h-5 sm:w-6 sm:h-6" /> },
-                  { name: "Next.js", icon: <NextjsIcon className="w-5 h-5 sm:w-6 sm:h-6" /> },
-                  { name: "JavaScript", icon: <JavaScriptIcon className="w-5 h-5 sm:w-6 sm:h-6" /> },
-                  { name: "TypeScript", icon: <TypeScriptIcon className="w-5 h-5 sm:w-6 sm:h-6" /> },
-                  { name: "MUI", icon: <MuiIcon className="w-5 h-5 sm:w-6 sm:h-6" /> },
-                  { name: "Redux", icon: <ReduxIcon className="w-5 h-5 sm:w-6 sm:h-6" /> },
-                  { name: "React Query", icon: <ReactQueryIcon className="w-5 h-5 sm:w-6 sm:h-6" /> },
-                  { name: "Git", icon: <GitIcon className="w-5 h-5 sm:w-6 sm:h-6" /> },
-                  { name: "GitHub", icon: <GithubIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white" /> },
-                  { name: "Node.js", icon: <NodejsIcon className="w-5 h-5 sm:w-6 sm:h-6" /> },
-                ].map((tech) => (
-                  <motion.div
-                    key={tech.name}
-                    whileHover={{ scale: 1.08, y: -3 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                    className="flex flex-col items-center group cursor-pointer"
-                  >
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/[0.04] border border-white/10 group-hover:border-[#c8cb6d]/60 group-hover:bg-white/[0.08] group-hover:shadow-[0_0_20px_rgba(200,203,109,0.3)] flex items-center justify-center transition-all duration-300 shadow-sm">
-                      {tech.icon}
-                    </div>
-                    <span className="text-[10px] sm:text-[10.5px] font-medium text-stone-400 group-hover:text-stone-100 mt-1 sm:mt-1.5 transition-colors text-center leading-tight truncate w-full">
-                      {tech.name}
+                {/* Top Deck Status Bar */}
+                <div className="flex items-center justify-between gap-2 mb-3 pb-2.5 border-b dark:border-white/10 border-stone-100">
+                  <div className="flex items-center gap-2">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10b981] opacity-75" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10b981]" />
                     </span>
-                  </motion.div>
-                ))}
-              </div>
+                    <span className="text-[11px] font-mono font-bold dark:text-[#e2e58c] text-[#344415]">
+                      CORE TECH ECOSYSTEM
+                    </span>
+                  </div>
+
+                  <span className="inline-flex items-center gap-1 text-[10px] font-mono dark:text-stone-400 text-stone-600 group-hover:text-[#c8cb6d] transition-colors">
+                    <span>Explore Galaxy</span>
+                    <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </div>
+
+                {/* Animated Floating Core Stack Icons Row with Connecting Beams */}
+                <div className="flex items-center justify-between gap-1.5 pt-1 pb-1">
+                  {[
+                    { name: "React", icon: <ReactIcon className="w-5 h-5" />, color: "#61DAFB" },
+                    { name: "Next.js", icon: <NextjsIcon className="w-5 h-5" />, color: "#0ea5e9" },
+                    { name: "TypeScript", icon: <TypeScriptIcon className="w-5 h-5" />, color: "#3178C6" },
+                    { name: "Node.js", icon: <NodejsIcon className="w-5 h-5" />, color: "#339933" },
+                    { name: "MongoDB", icon: <MongodbIcon className="w-5 h-5" />, color: "#13AA52" },
+                    { name: "Tailwind", icon: <TailwindIcon className="w-5 h-5" />, color: "#06B6D4" },
+                  ].map((tech, idx) => (
+                    <motion.div
+                      key={tech.name}
+                      animate={{ y: [-3, 3, -3] }}
+                      transition={{
+                        duration: 3 + idx * 0.4,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: idx * 0.2,
+                      }}
+                      className="flex flex-col items-center group/icon"
+                    >
+                      <div
+                        className="w-10 h-10 rounded-2xl dark:bg-zinc-900 bg-stone-50 border dark:border-white/10 border-stone-200 group-hover/icon:border-[#c8cb6d] group-hover/icon:scale-110 flex items-center justify-center transition-all duration-200 shadow-md relative"
+                        style={{
+                          boxShadow: "0 4px 12px rgba(0,0,0,0.06)",
+                        }}
+                      >
+                        {tech.icon}
+                        <span
+                          className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full"
+                          style={{ backgroundColor: tech.color }}
+                        />
+                      </div>
+                      <span className="text-[9px] font-mono font-medium dark:text-stone-400 text-stone-600 mt-1 truncate">
+                        {tech.name}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Bottom Architecture Highlight Pill */}
+                <div className="mt-3 pt-2.5 border-t dark:border-white/5 border-stone-100 flex items-center justify-between text-[10px] font-mono dark:text-stone-400 text-stone-600">
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#c8cb6d]" />
+                    Frontend & Full-Stack Engine
+                  </span>
+                  <span className="dark:text-[#c8cb6d] text-[#4d5e24] font-semibold">
+                    15+ Production Modules
+                  </span>
+                </div>
+              </a>
             </motion.div>
 
             {/* Social Icons Row */}

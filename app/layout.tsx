@@ -239,13 +239,16 @@ const jsonLd = {
   ],
 };
 
+import { ThemeProvider } from "@/components/ThemeProvider";
+import { HangingThemeCord } from "@/components/ui/HangingThemeCord";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en" className="dark scroll-smooth" suppressHydrationWarning>
       <head>
         <meta name="google-site-verification" content="google16096d9fc91fafae" />
         <script
@@ -254,11 +257,15 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-[#0a0e0b] text-stone-100 min-h-screen selection:bg-[#c8cb6d]/30 selection:text-white antialiased font-sans`}
+        className={`${geistSans.variable} ${geistMono.variable} min-h-screen selection:bg-[#c8cb6d]/30 selection:text-white antialiased font-sans`}
       >
-        <div className="noise-overlay" />
-        {children}
+        <ThemeProvider>
+          <div className="noise-overlay" />
+          <HangingThemeCord />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
 }
+

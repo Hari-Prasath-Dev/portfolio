@@ -28,7 +28,7 @@ export function CodeBackground() {
       "const", "let", "function", "=>", "import", "export",
       "<React.FC>", "useState()", "useEffect()", "useMemo()",
       "interface", "TypeScript", "Next.js", "{...props}",
-      "async/await", "Redux", "ApexCharts", "REST_API",
+      "async/await", "Redux", "ApexCharts", "Component",
       "01", "10", "</>", "{}", "[]", "git push", "yarn build",
       "200 OK", "Lighthouse: 99", "60fps", "Docker"
     ];
@@ -118,12 +118,16 @@ export function CodeBackground() {
         const dy = mouseY - p.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
 
-        let finalOpacity = p.opacity;
+        // Check if light mode is active
+        const isLight = document.documentElement.classList.contains("light");
+
+        let finalOpacity = isLight ? p.opacity * 0.25 : p.opacity;
         if (dist < 180) {
-          finalOpacity = Math.min(p.opacity + (1 - dist / 180) * 0.35, 0.6);
+          finalOpacity = Math.min(finalOpacity + (1 - dist / 180) * (isLight ? 0.15 : 0.35), isLight ? 0.25 : 0.6);
         }
 
-        ctx.fillStyle = `${p.color}${finalOpacity})`;
+        const tokenColor = isLight ? "rgba(92, 107, 47, " : p.color;
+        ctx.fillStyle = `${tokenColor}${finalOpacity})`;
         ctx.fillText(p.text, p.x, p.y);
       });
 

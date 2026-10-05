@@ -43,8 +43,8 @@ export function SectionHeading({
           transition={{ duration: 0.5 }}
           className="mb-4"
         >
-          <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-semibold tracking-wider uppercase bg-[#c8cb6d]/15 text-[#e2e58c] border border-[#c8cb6d]/35 shadow-[0_0_18px_-3px_rgba(200,203,109,0.35)]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#c8cb6d] animate-pulse" />
+          <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase dark:bg-[#c8cb6d]/15 bg-[#5c6b2f]/15 dark:text-[#e2e58c] text-[#344415] dark:border-[#c8cb6d]/35 border-[#5c6b2f]/35 shadow-[0_0_18px_-3px_rgba(200,203,109,0.3)]">
+            <span className="w-1.5 h-1.5 rounded-full dark:bg-[#c8cb6d] bg-[#5c6b2f] animate-pulse" />
             &lt;{badge}&gt;
           </span>
         </motion.div>
@@ -55,7 +55,7 @@ export function SectionHeading({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.6, delay: 0.1 }}
-        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-stone-100 leading-[1.15]"
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight dark:text-stone-100 text-stone-900 leading-[1.15]"
       >
         {title}{" "}
         {gradientText && (
@@ -71,7 +71,7 @@ export function SectionHeading({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-4 text-base sm:text-lg text-stone-400 leading-relaxed max-w-2xl font-normal"
+          className="mt-4 text-base sm:text-lg dark:text-stone-400 text-stone-600 leading-relaxed max-w-2xl font-medium"
         >
           {description}
         </motion.p>

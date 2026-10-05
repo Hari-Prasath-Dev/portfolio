@@ -11,8 +11,7 @@ import {
   MapPin, 
   Award, 
   BookOpen, 
-  CheckCircle2,
-  Sparkles 
+  CheckCircle2
 } from "lucide-react";
 
 export function Education() {

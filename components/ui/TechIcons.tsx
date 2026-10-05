@@ -131,7 +131,7 @@ export function GitIcon({ className = "w-6 h-6", size }: IconProps) {
 
 export function GithubIcon({ className = "w-6 h-6", size }: IconProps) {
   return (
-    <svg viewBox="0 0 24 24" className={className} width={size} height={size} fill="currentColor">
+    <svg viewBox="0 0 24 24" className={`dark:text-white text-stone-900 transition-colors ${className}`} width={size} height={size} fill="currentColor">
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -283,8 +283,25 @@ export function WordPressIcon({ className = "w-6 h-6", size }: IconProps) {
 export function ExpressIcon({ className = "w-6 h-6", size }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" className={className} width={size} height={size} fill="none">
-      <circle cx="12" cy="12" r="11" fill="#FFFFFF" fillOpacity="0.1" stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
-      <text x="50%" y="58%" dominantBaseline="middle" textAnchor="middle" fill="#FFFFFF" fontSize="9" fontWeight="bold" fontFamily="monospace">
+      <rect
+        x="1.5"
+        y="1.5"
+        width="21"
+        height="21"
+        rx="6"
+        className="dark:fill-stone-900 fill-stone-100 dark:stroke-stone-700 stroke-stone-300"
+        strokeWidth="1.5"
+      />
+      <text
+        x="50%"
+        y="58%"
+        dominantBaseline="middle"
+        textAnchor="middle"
+        className="dark:fill-white fill-stone-950 font-black"
+        fontSize="11"
+        fontFamily="system-ui, -apple-system, sans-serif"
+        letterSpacing="-0.5px"
+      >
         ex
       </text>
     </svg>

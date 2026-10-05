@@ -107,12 +107,11 @@ export const skillsData: SkillCategory[] = [
   {
     title: "State Management & Data",
     icon: "Cpu",
-    description: "Architectures for predictable state flow and efficient API caching",
+    description: "Architectures for predictable state flow and efficient data caching",
     skills: [
       { name: "Redux & Redux Toolkit", level: "Advanced", highlight: true },
       { name: "React Query (TanStack)", level: "Advanced", highlight: true },
       { name: "React Hooks & Context", level: "Expert", highlight: true },
-      { name: "RESTful API Integration", level: "Expert", highlight: true },
     ],
   },
   {
@@ -128,7 +127,7 @@ export const skillsData: SkillCategory[] = [
   {
     title: "Backend & Database",
     icon: "Database",
-    description: "Foundational backend knowledge for seamless full-stack API integration",
+    description: "Foundational backend knowledge for seamless full-stack data integration",
     skills: [
       { name: "Node.js", level: "Advanced", highlight: true },
       { name: "Express.js", level: "Intermediate", highlight: true },
@@ -145,7 +144,6 @@ export const skillsData: SkillCategory[] = [
     description: "Modern workflows, version control, and performance optimization techniques",
     skills: [
       { name: "Git / GitHub", level: "Advanced", highlight: true },
-      { name: "Postman API Testing", level: "Advanced" },
       { name: "VS Code & DevTools", level: "Expert" },
       { name: "WordPress", level: "Intermediate" },
       { name: "Code-Splitting & Lazy Loading", level: "Advanced", highlight: true },
@@ -214,7 +212,6 @@ export const projectsData: Project[] = [
       "Redux",
       "React Query",
       "ApexCharts",
-      "REST APIs",
     ],
     metrics: [
       { label: "Modules Delivered", value: "9+" },
@@ -260,7 +257,6 @@ export const projectsData: Project[] = [
       "React Query",
       "TypeScript",
       "Tailwind CSS",
-      "REST APIs",
       "Code-Splitting",
     ],
     metrics: [
@@ -291,7 +287,6 @@ export const projectsData: Project[] = [
       "React.js",
       "React Hooks",
       "JavaScript (ES6+)",
-      "REST APIs",
       "CSS3 / Flexbox / Grid",
     ],
     metrics: [
@@ -318,7 +313,7 @@ export const projectsData: Project[] = [
       "Component-driven React application featuring dynamic form engines, complex validations, and modular design patterns.",
     fullOverview:
       "CNI Business Forum is a foundational business application built around high-reusability component patterns, structured form validation pipelines, and dynamic table rendering.",
-    techStack: ["React.js", "JavaScript (ES6+)", "REST APIs", "CSS3", "State Management"],
+    techStack: ["React.js", "JavaScript (ES6+)", "CSS3", "State Management"],
     metrics: [
       { label: "Component Reusability", value: "85%" },
       { label: "Form Validation Coverage", value: "100%" },
@@ -341,7 +336,7 @@ export const projectsData: Project[] = [
       "Secure chit fund management web application with member ledger tracking, auction records, and payment status workflows.",
     fullOverview:
       "Chit Fund Platform provides financial administrators and members with full visibility into active chit groups, installment collections, dividend distribution, and monthly auction tracking.",
-    techStack: ["HTML5", "CSS3", "JavaScript", "PHP", "MySQL", "REST APIs"],
+    techStack: ["HTML5", "CSS3", "JavaScript", "PHP", "MySQL"],
     metrics: [
       { label: "Ledger Accuracy", value: "100%" },
       { label: "Cross-Device Support", value: "All Browsers" },
@@ -365,7 +360,7 @@ export const projectsData: Project[] = [
       "Responsive frontend modules built with React.js, featuring reusable components, API data connectors, and cross-browser resilience.",
     fullOverview:
       "The Star Business delivers structured business modules with intuitive navigation, fluid animations, and robust error recovery across diverse desktop and mobile devices.",
-    techStack: ["React.js", "JavaScript (ES6+)", "HTML5", "CSS3", "REST APIs"],
+    techStack: ["React.js", "JavaScript (ES6+)", "HTML5", "CSS3"],
     metrics: [
       { label: "Cross-Browser Score", value: "100%" },
       { label: "UI Polish", value: "Pixel-Perfect" },

@@ -188,8 +188,8 @@ export function InteractiveWebEffect() {
       }
     };
 
-    const handlePointerDown = (e: MouseEvent | PointerEvent) => {
-      createWebBurst(e.clientX, e.clientY);
+    const handlePointerDown = () => {
+      // Click web burst removed
     };
 
     window.addEventListener("mousemove", handleMouseMove);
